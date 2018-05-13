@@ -1,3 +1,7 @@
 Page:
   extensions:
     - Jules0x\Extensions\FeatureFieldsExtension
+
+Jules0x\Elements\ElementFeaturedPages:
+  allowed_elements:
+    - Jules0x\Elements\Model\FeaturedPage
