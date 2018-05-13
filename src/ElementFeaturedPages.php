@@ -8,15 +8,17 @@ use SilverStripe\Forms\LiteralField;
 
 class ElementFeaturedPages extends ElementList
 {
-    private static $db = [
-        'Width' => 'Enum("2, 3, 4", 3)'
-    ];
+    private static $icon = 'font-icon-circle-star';
 
     private static $table_name = 'ElementFeaturedPages';
 
-    private static $singular_name = 'featured pages block';
+    private static $singular_name = 'Featured pages';
 
     private static $description = 'List of featured page elements';
+
+    private static $db = [
+        'Width' => 'Enum("2, 3, 4", 3)'
+    ];
 
     public function getCMSFields()
     {
@@ -34,6 +36,6 @@ class ElementFeaturedPages extends ElementList
 
     public function getType()
     {
-        return 'Featured pages';
+        return $this->config()->get('singular_name');
     }
 }

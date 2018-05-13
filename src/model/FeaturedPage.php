@@ -41,7 +41,7 @@ class FeaturedPage extends BaseElement {
 
     public function getType()
     {
-        return 'Featured page';
+        return $this->config()->get('singular_name');
     }
 
     public function getHideElementHolder()
