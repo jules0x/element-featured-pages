@@ -1,9 +1,7 @@
 <% if $ShowTitle %>
-    <div class="title-wrap<% if $Constrain %> container<% end_if %>">
-        <h2 class="title">$Title</h2>
-    </div>
+    <h2 class="element-title">$Title</h2>
 <% end_if %>
 
-<div class="element-featured-pages width__{$Width} flex-wrap<% if $Constrain %> container<% end_if %>" id="e{$ID}">
+<div class="element-featuredpages width__{$Width} flex-wrap" id="e{$ID}">
     $Elements
 </div>
