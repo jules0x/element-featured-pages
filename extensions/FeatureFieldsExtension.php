@@ -28,7 +28,7 @@ class FeatureFieldsExtension extends DataExtension {
         $fields->addFieldsToTab('Root.Feature', [
             LiteralField::create('Usage',
                 '<h4>
-                    <em>These fields are used for social sharing, and when presented in a </em>
+                    <em>These fields are used when this page is shown in a </em>
                     <strong>FeaturedPages</strong>
                     <em> element</em>
                 </h4>
