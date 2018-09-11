@@ -1,11 +1,9 @@
-<div class="element featured">
-    <a href="{$FeaturedPage.Link}">
-        <h3 class="featured-title">$FeaturedPage.Title</h3>
+<a href="{$FeaturedPage.Link}">
+    <h3 class="featured-title">$FeaturedPage.Title</h3>
 
-        <div class="featured-image">
-            <img src="{$FeaturedPage.FeatureImage.FillMax(520, 290).URL}" class="tile">
-        </div>
+    <div class="featured-image">
+        <img src="{$FeaturedPage.FeatureImage.Fill(600, 250).URL}" class="tile">
+    </div>
 
-        <p class="featured-summary">$FeaturedPage.FeatureSummary</p>
-    </a>
-</div>
+    <p class="featured-summary">$FeaturedPage.FeatureSummary</p>
+</a>

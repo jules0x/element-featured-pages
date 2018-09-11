@@ -4,9 +4,12 @@ namespace Jules0x\Elements\Model;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TreeDropdownField;
 
 class FeaturedPage extends BaseElement {
+
+    private static $icon = 'font-icon-circle-star';
 
     private static $table_name = 'FeaturedPage';
 
@@ -23,16 +26,22 @@ class FeaturedPage extends BaseElement {
         $fields = parent::getCMSFields();
 
         $fields->removeByName([
-            'BackgroundColor',
-            'Constrain',
-            'Settings'
+            'FeaturedPageID',   //Remove to reorder
+            'Settings',         //Disable options
+            'TitleAndDisplayed' //Disable option
         ]);
 
-        $fields->addFieldToTab('Root.Main', TreeDropdownField::create('FeaturedPageID', 'Page', SiteTree::class));
+        $fields->addFieldsToTab('Root.Main', [
+            TreeDropdownField::create('FeaturedPageID', 'Page', SiteTree::class)
+        ]);
 
         return $fields;
     }
 
+    /**
+     * Get Title of target page
+     * @return string
+     */
     public function getTitle() {
         if ($this->FeaturedPageID > 0) {
             return $this->FeaturedPage()->Title;
@@ -44,6 +53,10 @@ class FeaturedPage extends BaseElement {
         return $this->config()->get('singular_name');
     }
 
+    /**
+     * Prevent nested containers on ElementList Elements
+     * @return bool
+     */
     public function getHideElementHolder()
     {
         return true;

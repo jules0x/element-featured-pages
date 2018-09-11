@@ -22,14 +22,20 @@ class ElementFeaturedPages extends ElementList
 
     public function getCMSFields()
     {
-
         $fields = parent::getCMSFields();
+
+        $fields->removeByName([
+            'FullWidth',    //Disable option
+            'Padding'       //Use default
+        ]);
 
         if (!$this->isInDB()) {
             $fields->addFieldToTab('Root.Main', LiteralField::create('SaveNotice', '<p class="message warning">Save this element before adding featured pages</p>'));
         }
 
-        $fields->addFieldToTab('Root.Main', DropdownField::create( 'Width', 'Max No. items per row', singleton('Jules0x\Elements\ElementFeaturedPages')->dbObject('Width')->enumValues()), 'Elements');
+        $fields->addFieldToTab('Root.Settings',
+            DropdownField::create( 'Width', 'Max No. items per row', singleton('Jules0x\Elements\ElementFeaturedPages')->dbObject('Width')->enumValues())
+        );
 
         return $fields;
     }
